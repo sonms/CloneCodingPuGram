@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.core.content.ContextCompat
 import com.example.clonecoding_instagram.R
 import com.example.clonecoding_instagram.databinding.ActivityMainBinding
 import com.example.clonecoding_instagram.databinding.FragmentHomeBinding
@@ -68,5 +69,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
             auth.signOut()
+        activity?.finish()
     }
 }

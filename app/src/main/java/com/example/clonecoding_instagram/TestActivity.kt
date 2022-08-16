@@ -2,24 +2,20 @@ package com.example.clonecoding_instagram
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
-import com.example.clonecoding_instagram.databinding.ActivityTestBinding
 import com.example.clonecoding_instagram.navigation.AccountFragment
 import com.example.clonecoding_instagram.navigation.CameraFragment
 import com.example.clonecoding_instagram.navigation.HomeFragment
 import com.example.clonecoding_instagram.navigation.SearchFragment
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_test.*
-import kotlin.math.sign
 
 class TestActivity : AppCompatActivity() {
     private lateinit var main_content : LinearLayout
     private lateinit var bottom_navigationview : BottomNavigationView
     private var auth: FirebaseAuth = FirebaseAuth.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
@@ -30,7 +26,6 @@ class TestActivity : AppCompatActivity() {
         }*/
         init()
         initNavigationBar()
-
     }
     private fun init() {
         main_content = findViewById(R.id.main_content)
@@ -64,8 +59,5 @@ class TestActivity : AppCompatActivity() {
             .replace(R.id.main_content, fragment)
             .commit()
     }
-    private fun signOOut() {
-        auth.signOut()
-        finish()
-    }
+
 }

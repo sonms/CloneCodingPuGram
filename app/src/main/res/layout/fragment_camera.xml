@@ -3,14 +3,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".navigation.CameraFragment">
+    tools:context=".navigation.CameraFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/camera"
-        android:textSize="50sp"
-        android:gravity="center"/>
+        android:layout_height="99dp"
+        android:text="Image Select"
+        android:gravity="center"
+        android:textSize="50dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        />
+
+    <ImageView
+        android:id="@+id/upload_image"
+        android:layout_width="match_parent"
+        android:layout_height="286dp"
+        android:layout_marginTop="100dp"
+        >
+    </ImageView>
+
+    <Button
+        android:id="@+id/set_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="200dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/whiteblue"
+        android:text="Set Image" />
+
+    <Button
+        android:id="@+id/upload_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="100dp"
+        android:background="@color/whiteblue"
+        android:text="Upload Image" />
+
 
 </FrameLayout>
