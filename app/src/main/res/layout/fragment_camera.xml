@@ -25,7 +25,7 @@
     </ImageView>
 
     <Button
-        android:id="@+id/set_btn"
+        android:id="@+id/upload_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
@@ -33,18 +33,6 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:background="@color/whiteblue"
-        android:text="Set Image" />
-
-    <Button
-        android:id="@+id/upload_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="100dp"
-        android:background="@color/whiteblue"
         android:text="Upload Image" />
-
 
 </FrameLayout>

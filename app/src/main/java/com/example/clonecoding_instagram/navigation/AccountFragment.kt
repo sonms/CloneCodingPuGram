@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.example.clonecoding_instagram.R
 import com.example.clonecoding_instagram.databinding.FragmentAccountBinding
 import com.example.clonecoding_instagram.databinding.FragmentHomeBinding
+import com.google.firebase.auth.FirebaseAuth
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,6 +25,8 @@ class AccountFragment : Fragment() {
     private lateinit var mBinding : FragmentAccountBinding
     private var param1: String? = null
     private var param2: String? = null
+    private var auth : FirebaseAuth = FirebaseAuth.getInstance()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +44,9 @@ class AccountFragment : Fragment() {
         //return inflater.inflate(R.layout.fragment_account, container, false)
         mBinding = FragmentAccountBinding.inflate(inflater,container,false)
 
+        mBinding.signOut.setOnClickListener {
+            signOut()
+        }
         return mBinding.root
     }
 
@@ -62,5 +68,9 @@ class AccountFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+    private fun signOut() {
+        auth.signOut()
+        activity?.finish()
     }
 }

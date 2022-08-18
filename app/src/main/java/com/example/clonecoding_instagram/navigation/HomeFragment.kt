@@ -22,11 +22,10 @@ private const val ARG_PARAM2 = "param2"
  * Use the [HomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class HomeFragment : Fragment(), View.OnClickListener {
+class HomeFragment : Fragment() {
     private lateinit var mBinding: FragmentHomeBinding
     private var param1: String? = null
     private var param2: String? = null
-    private var auth : FirebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,8 +41,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
     ): View? {
         mBinding = FragmentHomeBinding.inflate(inflater,container,false)
 
-        val btn : Button = mBinding.root.findViewById(R.id.sign_out)
-        btn.setOnClickListener(this)
+
+        /*val btn : Button = mBinding.root.findViewById(R.id.sign_out)
+        btn.setOnClickListener(this)*/
         return mBinding.root
     }
 
@@ -67,8 +67,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
             }
     }
 
-    override fun onClick(v: View?) {
+    /*override fun onClick(v: View?) {
             auth.signOut()
         activity?.finish()
-    }
+    }*/
 }

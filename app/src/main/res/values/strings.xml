@@ -8,4 +8,6 @@
     <string name="camera">camera</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="upload_success">업로드 성공</string>
+    <string name="upload_fail">업로드 실패..</string>
 </resources>
