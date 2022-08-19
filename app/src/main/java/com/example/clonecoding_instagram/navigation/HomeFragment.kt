@@ -5,12 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.core.content.ContextCompat
-import com.example.clonecoding_instagram.R
-import com.example.clonecoding_instagram.databinding.ActivityMainBinding
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.clonecoding_instagram.databinding.FragmentHomeBinding
-import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,7 +42,39 @@ class HomeFragment : Fragment() {
     ): View? {
         mBinding = FragmentHomeBinding.inflate(inflater,container,false)
 
+        val iv = mBinding.ivContent
 
+        val targetImage : StorageReference = FirebaseStorage.getInstance().reference.child("images/").child("mainjelly.png")
+        targetImage.downloadUrl.addOnSuccessListener {
+            Glide.with(this).load(it).into(iv)
+        }.addOnFailureListener {
+            Toast.makeText(this.context, "다운로드실패", Toast.LENGTH_SHORT).show()
+        }
+        /*listRef.listAll()
+            .addOnSuccessListener {
+                var item : StorageReference
+                for (item in it.items) {
+                    var layout : LinearLayout = mBinding.mainlayout
+
+                    val iv = ImageView(mBinding.root.context)
+                    val setiv = LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                    )
+                    iv.layoutParams = setiv
+                    layout.addView(iv)
+
+                    item.downloadUrl.addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            Glide.with(mBinding.root.context).load(task.getResult()).into(iv)
+                        } else {
+                            Toast.makeText(mBinding.root.context, "error", Toast.LENGTH_SHORT).show()
+                        }
+                    }.addOnFailureListener {
+
+                    }
+                }
+            }*/
         /*val btn : Button = mBinding.root.findViewById(R.id.sign_out)
         btn.setOnClickListener(this)*/
         return mBinding.root
