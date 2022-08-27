@@ -67,7 +67,7 @@ class TestActivity : AppCompatActivity() {
             selectedItemId = R.id.home
         }
     }
-    private fun changeFragment(fragment : Fragment) {
+    fun changeFragment(fragment : Fragment) {
         //프래그먼트를 교체 하는 작업을 수행할 수 있게 해줍니다.
         supportFragmentManager
             .beginTransaction()

@@ -12,10 +12,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import com.example.clonecoding_instagram.ContentSet
 import com.google.firebase.storage.FirebaseStorage
 import com.example.clonecoding_instagram.R
+import com.example.clonecoding_instagram.TestActivity
 import com.example.clonecoding_instagram.databinding.FragmentCameraBinding
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.storage.UploadTask
 import kotlinx.android.synthetic.main.fragment_camera.*
 import kotlinx.android.synthetic.main.fragment_camera.view.*
 import java.text.SimpleDateFormat
@@ -78,12 +82,25 @@ class CameraFragment(uri: Uri?) : Fragment() {
         var imagesRef = storage!!.reference.child("images/").child(fileName)    //기본 참조 위치/images/${fileName}
 
         //var uploadTask : UploadTask = putRef.putFile(uri)
-        imagesRef.putFile(uri).addOnSuccessListener {
+        /*imagesRef.putFile(uri).addOnSuccessListener {
             Toast.makeText(activity, getString(R.string.upload_success), Toast.LENGTH_SHORT).show()
             }.addOnFailureListener {
                 println(it)
                 Toast.makeText(activity, getString(R.string.upload_fail), Toast.LENGTH_SHORT).show()
-            }
+            }*/
+        imagesRef.putFile(uri!!).continueWithTask { task:Task<UploadTask.TaskSnapshot> ->
+
+            return@continueWithTask imagesRef.downloadUrl
+        }.addOnSuccessListener {
+            Toast.makeText(activity,"성공", Toast.LENGTH_SHORT).show()
+            /*var contentSet : ContentSet = ContentSet()
+            contentSet.imageUri = it.toString()
+            contentSet.userEmail = auth!!.currentUser!!.email
+            (activity as TestActivity).changeFragment(HomeFragment())*/
+
+        }.addOnFailureListener {
+            Toast.makeText(activity, getString(R.string.upload_fail), Toast.LENGTH_SHORT).show()
+        }
     }
 
 

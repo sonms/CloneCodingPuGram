@@ -1,29 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".navigation.HomeFragment"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/mainlayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        >
 
+        <!--
         <ImageView
             android:id="@+id/iv_content"
             android:layout_width="match_parent"
             android:layout_height="240dp"
 
             android:contentDescription="TODO" />
+            -->
+        <!--수직형태 linearlayoutmanager-->
+        <!--descendant 어쩌구 : viewgroup과 자식들의 관계를 정의합니다
+        뷰가 포커스를 갖는 것을 발견했을 때, 현재는 모두 막는 처리-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="blocksDescendants"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/post_item"
+            />
 
-    </LinearLayout>
 
 
 
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
