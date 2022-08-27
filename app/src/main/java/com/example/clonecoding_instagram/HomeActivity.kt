@@ -66,10 +66,5 @@ class HomeActivity : AppCompatActivity() {
             .replace(com.google.android.material.R.id.container, fragment)
             .commit()
     }*/
-    private fun signOut() {
-        auth.signOut()
-        googleSignInClient!!.signOut().addOnCompleteListener(this) {
-
-        }
-    }
+    
 }
