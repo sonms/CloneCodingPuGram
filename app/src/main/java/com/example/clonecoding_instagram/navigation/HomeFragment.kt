@@ -101,9 +101,14 @@ class HomeFragment : Fragment() {
         data.add(ContentSet("email2"))
         data.add(ContentSet("email3"))
         data.add(ContentSet("email4"))
+        //어댑터 생성
         adapter = MyAdapter()
+        
+        //데이터 연결
         adapter!!.listData = data
+        //어댑터 연결
         mBinding.recyclerviewContent.adapter = adapter
+        //리사이클러뷰 화면 크기고정
         mBinding.recyclerviewContent.setHasFixedSize(true)
         mBinding.recyclerviewContent.layoutManager = LinearLayoutManager(activity)
         mBinding.recyclerviewContent.addItemDecoration(postItemDecoration())
