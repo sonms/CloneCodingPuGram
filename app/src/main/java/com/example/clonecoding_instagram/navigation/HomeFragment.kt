@@ -96,10 +96,7 @@ class HomeFragment : Fragment() {
         //mBinding.recyclerviewContent.adapter = adapter
 
         //mBinding.recyclerviewContent.layoutManager = LinearLayoutManager(activity)
-        /*data.add(ContentSet("20201530@daejin.ac.kr"))
-        data.add(ContentSet("smsms5676@naver.com"))
-        data.add(ContentSet("1234@success.com"))
-        data.add(ContentSet("20201530@daejin.ac.kr"))*/
+        
         data.add(ContentSet("email1"))
         data.add(ContentSet("email2"))
         data.add(ContentSet("email3"))
