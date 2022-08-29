@@ -1,6 +1,7 @@
 package com.example.clonecoding_instagram.navigation
 
 import android.content.Context
+import android.graphics.Rect
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -106,8 +107,10 @@ class HomeFragment : Fragment() {
         adapter = MyAdapter()
         adapter!!.listData = data
         mBinding.recyclerviewContent.adapter = adapter
-        mBinding.recyclerviewContent.layoutManager = LinearLayoutManager(activity)
         mBinding.recyclerviewContent.setHasFixedSize(true)
+        mBinding.recyclerviewContent.layoutManager = LinearLayoutManager(activity)
+        mBinding.recyclerviewContent.addItemDecoration(postItemDecoration())
+
 
         return mBinding.root
     }
@@ -174,4 +177,19 @@ class HomeFragment : Fragment() {
         }
     }*/
 
+    inner class postItemDecoration : RecyclerView.ItemDecoration() {
+        override fun getItemOffsets(
+            outRect: Rect,
+            view: View,
+            parent: RecyclerView,
+            state: RecyclerView.State
+        ) {
+            super.getItemOffsets(outRect, view, parent, state)
+
+            val offset = 20
+
+            outRect.top = offset
+            outRect.bottom = offset
+        }
+    }
 }
