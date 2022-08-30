@@ -36,8 +36,6 @@ class HomeFragment : Fragment() {
     private var param2: String? = null
 
     private lateinit var mBinding: FragmentHomeBinding
-    private var contentSet = arrayListOf<ContentSet>() //화면에 담을 data array
-    //private var adapter : RecyclerAdapter? = null
     private val data : MutableList<ContentSet> = mutableListOf()
     private var adapter : MyAdapter? = null
 
