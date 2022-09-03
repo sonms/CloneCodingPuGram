@@ -7,7 +7,6 @@
     tools:context=".navigation.HomeFragment"
     android:orientation="vertical">
 
-
         <!--
         <ImageView
             android:id="@+id/iv_content"
@@ -29,7 +28,14 @@
             tools:listitem="@layout/post_item"
             />
 
-
-
+        <!--바텀네비게이션뷰 스크롤리스너 테스트
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigationview"
+            android:layout_height="56dp"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:itemBackground="@color/white"
+            app:menu="@menu/bottom_menu" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,25 +1,30 @@
 package com.example.clonecoding_instagram.navigation
 
+import android.content.ContentValues.TAG
 import android.content.Context
+import android.content.Intent
 import android.graphics.Rect
+import android.nfc.Tag
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.clonecoding_instagram.ContentSet
 import com.example.clonecoding_instagram.MyAdapter
 import com.example.clonecoding_instagram.R
 import com.example.clonecoding_instagram.databinding.FragmentHomeBinding
-import com.example.clonecoding_instagram.databinding.PostItemBinding
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_test.*
+import kotlinx.android.synthetic.main.post_item.*
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,11 +41,8 @@ class HomeFragment : Fragment() {
     private var param2: String? = null
 
     private lateinit var mBinding: FragmentHomeBinding
-    private var contentSet = arrayListOf<ContentSet>() //화면에 담을 data array
-    //private var adapter : RecyclerAdapter? = null
     private val data : MutableList<ContentSet> = mutableListOf()
     private var adapter : MyAdapter? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -96,10 +98,7 @@ class HomeFragment : Fragment() {
         //mBinding.recyclerviewContent.adapter = adapter
 
         //mBinding.recyclerviewContent.layoutManager = LinearLayoutManager(activity)
-        /*data.add(ContentSet("20201530@daejin.ac.kr"))
-        data.add(ContentSet("smsms5676@naver.com"))
-        data.add(ContentSet("1234@success.com"))
-        data.add(ContentSet("20201530@daejin.ac.kr"))*/
+
         data.add(ContentSet("email1"))
         data.add(ContentSet("email2"))
         data.add(ContentSet("email3"))
@@ -110,10 +109,52 @@ class HomeFragment : Fragment() {
         mBinding.recyclerviewContent.setHasFixedSize(true)
         mBinding.recyclerviewContent.layoutManager = LinearLayoutManager(activity)
         mBinding.recyclerviewContent.addItemDecoration(postItemDecoration())
+        navController(mBinding.recyclerviewContent, requireActivity().bottom_navigationview)
+
+        /*val onScrollListener = object:RecyclerView.OnScrollListener() {
+            var temp : Int = 0
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                bottom_navigationview.visibility = View.VISIBLE
+                temp = 1
+            }
+
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                if (temp == 1) {
+                    super.onScrolled(recyclerView, dx, dy)
+                    bottom_navigationview.visibility = View.GONE
+                }
+            }
+        }
+        mBinding.recyclerviewContent.setOnScrollListener(onScrollListener)*/
 
 
         return mBinding.root
     }
+
+    private fun navController(
+        mRecyclerView: RecyclerView,
+        bottomNav : BottomNavigationView
+    ) {
+        mRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                if (dy > 0 || dy < 0) {
+                    bottomNav.visibility = View.GONE
+                }
+            }
+
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    bottomNav.visibility = View.VISIBLE
+                }
+
+                super.onScrollStateChanged(recyclerView, newState)
+            }
+        })
+    }
+
+
+
 
     companion object {
         /**

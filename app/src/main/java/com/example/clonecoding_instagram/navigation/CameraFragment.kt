@@ -89,12 +89,12 @@ class CameraFragment(uri: Uri?) : Fragment() {
                 Toast.makeText(activity, getString(R.string.upload_fail), Toast.LENGTH_SHORT).show()
             }*/
         imagesRef.putFile(uri!!).continueWithTask { task:Task<UploadTask.TaskSnapshot> ->
-
+            //storage에 업로드된 이미지의 downloadurl리턴
             return@continueWithTask imagesRef.downloadUrl
         }.addOnSuccessListener {
             Toast.makeText(activity,"성공", Toast.LENGTH_SHORT).show()
             /*var contentSet : ContentSet = ContentSet()
-            contentSet.imageUri = it.toString()
+            contentSet.imageUrl = it.toString()
             contentSet.userEmail = auth!!.currentUser!!.email
             (activity as TestActivity).changeFragment(HomeFragment())*/
 

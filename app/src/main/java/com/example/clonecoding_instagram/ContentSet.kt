@@ -1,4 +1,4 @@
 package com.example.clonecoding_instagram
 
-data class ContentSet(var imageUri : String? = null //이미지 uri
-                    , var userEmail : String? = null) //유저 이메일
+data class ContentSet(//var imageUrl: String? = null,
+                      var userEmail : String? = null)
