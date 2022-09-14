@@ -209,7 +209,7 @@ class HomeFragment : Fragment() {
 
     }
 
-    //
+    //뷰홀더
     inner class ViewHolder(var postItemBinding: PostItemBinding) : RecyclerView.ViewHolder(postItemBinding.root) {
         private var position : Int? = null
 
@@ -219,7 +219,8 @@ class HomeFragment : Fragment() {
             Glide.with(postItemBinding.root).load(content.imageUri).into(postItemBinding.contentImage)
         }
     }*/
-
+    
+    //
     inner class postItemDecoration : RecyclerView.ItemDecoration() {
         override fun getItemOffsets(
             outRect: Rect,
