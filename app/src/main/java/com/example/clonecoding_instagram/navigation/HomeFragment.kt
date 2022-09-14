@@ -220,7 +220,7 @@ class HomeFragment : Fragment() {
         }
     }*/
     
-    //
+    //구분선 및 여백 설정
     inner class postItemDecoration : RecyclerView.ItemDecoration() {
         override fun getItemOffsets(
             outRect: Rect,
