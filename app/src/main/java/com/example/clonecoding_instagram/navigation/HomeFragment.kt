@@ -110,7 +110,8 @@ class HomeFragment : Fragment() {
         mBinding.recyclerviewContent.layoutManager = LinearLayoutManager(activity)
         mBinding.recyclerviewContent.addItemDecoration(postItemDecoration())
         navController(mBinding.recyclerviewContent, requireActivity().bottom_navigationview)
-
+        
+        
         /*val onScrollListener = object:RecyclerView.OnScrollListener() {
             var temp : Int = 0
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
@@ -131,7 +132,8 @@ class HomeFragment : Fragment() {
 
         return mBinding.root
     }
-
+        
+    //dx, dy는 너비를 
     private fun navController(
         mRecyclerView: RecyclerView,
         bottomNav : BottomNavigationView
