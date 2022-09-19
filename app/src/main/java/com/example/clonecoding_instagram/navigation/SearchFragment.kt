@@ -27,7 +27,7 @@ class SearchFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private val data : MutableList<ContentSet> = mutableListOf()
-    private var adapter : HomeFragment.MyAdapter? = null
+    //private var adapter : HomeFragment.MyAdapter? = null
     private lateinit var mBinding : FragmentSearchBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,9 +63,9 @@ class SearchFragment : Fragment() {
         //adapter = HomeFragment.MyAdapter()
 
         //데이터 연결
-        adapter!!.listData = data
+        //adapter!!.listData = data
         //어댑터 연결
-        mBinding.recyclerviewContent.adapter = adapter
+        //mBinding.recyclerviewContent.adapter = adapter
         //리사이클러뷰 화면 크기고정
         mBinding.recyclerviewContent.setHasFixedSize(true)
         mBinding.recyclerviewContent.layoutManager = LinearLayoutManager(activity)
