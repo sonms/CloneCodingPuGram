@@ -19,6 +19,7 @@ import com.example.clonecoding_instagram.TestActivity
 import com.example.clonecoding_instagram.databinding.FragmentCameraBinding
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.UploadTask
 import kotlinx.android.synthetic.main.fragment_camera.*
 import kotlinx.android.synthetic.main.fragment_camera.view.*
@@ -39,7 +40,7 @@ class CameraFragment(uri: Uri?) : Fragment() {
     private var uri: Uri? = uri
     private lateinit var mBinding: FragmentCameraBinding
     private var auth: FirebaseAuth? = null
-
+    private var store : FirebaseFirestore? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,9 +55,11 @@ class CameraFragment(uri: Uri?) : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        auth = FirebaseAuth.getInstance()
-
         mBinding = FragmentCameraBinding.inflate(inflater, container, false)
+
+        //서비스 초기화
+        auth = FirebaseAuth.getInstance()
+        store = FirebaseFirestore.getInstance()
 
         //선택한 이미지를 imageview에서 보여줌
         mBinding.uploadImage.setImageURI(uri)
@@ -93,10 +96,15 @@ class CameraFragment(uri: Uri?) : Fragment() {
             return@continueWithTask imagesRef.downloadUrl
         }.addOnSuccessListener {
             Toast.makeText(activity,"성공", Toast.LENGTH_SHORT).show()
-            /*var contentSet : ContentSet = ContentSet()
+            var contentSet : ContentSet = ContentSet()
             contentSet.imageUrl = it.toString()
             contentSet.userEmail = auth!!.currentUser!!.email
-            (activity as TestActivity).changeFragment(HomeFragment())*/
+            contentSet.uid = auth!!.currentUser!!.uid
+
+            //FireStore에 데이터 저장장
+            store!!.collection("posts").document().set(contentSet)
+
+            (activity as TestActivity).changeFragment(HomeFragment())
 
         }.addOnFailureListener {
             Toast.makeText(activity, getString(R.string.upload_fail), Toast.LENGTH_SHORT).show()

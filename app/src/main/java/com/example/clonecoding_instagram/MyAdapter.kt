@@ -1,15 +1,46 @@
 package com.example.clonecoding_instagram
 
-import android.content.Context
+/*import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Glide.init
 import com.example.clonecoding_instagram.databinding.PostItemBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MyAdapter : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
     private lateinit var postItemBinding: PostItemBinding
-    var listData = mutableListOf<ContentSet>()
+    private var store : FirebaseFirestore = FirebaseFirestore.getInstance()
+    private var auth : FirebaseAuth = FirebaseAuth.getInstance()
+    var listData = mutableListOf<ContentSet>() //post의 모든 리스트 데이터
+    private var userSet : ArrayList<String>? = null //유저 정보
+    private var contentSetId = arrayListOf<String>()
+    /*init {
+        store.collection("posts")
+            .whereIn("userEmail", userSet!!)
+            .addSnapshotListener { //Starts listening to this query.
+            posts, errorHandle ->
+            if (errorHandle != null){
+                val c : Context? = null
+                c!!.applicationContext
+                Toast.makeText(c, R.string.upload_fail, Toast.LENGTH_SHORT).show()
+            } else {
+                listData.clear()
+                contentSetId.clear()
+                for (post in posts!!.documents) { //indices
+                    //firestore에서 받은 데이터를 바로 객체로 변환해서 받기
+                    var content = post.toObject(ContentSet::class.java)
+                    listData.add(content!!)
+                    contentSetId.add(post.id)
+                }
+            }
+                notifyDataSetChanged()
+        }
+    }*/
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         var inflater : LayoutInflater = parent.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -18,6 +49,7 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
         return ViewHolder(postItemBinding)
     }
+
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.setData(listData[position], position)
@@ -38,10 +70,11 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
         fun setData(content : ContentSet, position: Int) {
             this.position = position
             postItemBinding.accountEmail.text = content.userEmail
-            //Glide.with(postItemBinding.root).load(content.imageUrl).into(postItemBinding.contentImage)
+            Glide.with(postItemBinding.root).load(content.imageUrl).into(postItemBinding.contentImage)
         }
     }
-}
 
+}
+*/
 
 
