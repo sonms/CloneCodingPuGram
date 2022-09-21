@@ -22,7 +22,7 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var accountFragment: AccountFragment
     private lateinit var searchFragment: SearchFragment
     private lateinit var binding: ActivityHomeBinding
-    @SuppressLint("MissingInflatedId")
+   
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
