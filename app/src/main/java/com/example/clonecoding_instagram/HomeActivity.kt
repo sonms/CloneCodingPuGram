@@ -31,10 +31,7 @@ class HomeActivity : AppCompatActivity() {
         //각 네비게이션바의 메뉴탭을 눌렀을 때 화면이 전환 되도록함
         //initNavigationBar()
 
-        /*val btn : Button = findViewById(R.id.sign_out)
-        btn.setOnClickListener {
-            signOut()
-        }*/
+       
     }
     /*fun initNavigationBar() {
         var homeFragment = HomeFragment()
