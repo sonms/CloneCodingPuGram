@@ -66,7 +66,7 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
         private var position : Int? = null
 
 
-
+        //position 으로 리사이클러뷰 아이템의 위치파악
         fun setData(content : ContentSet, position: Int) {
             this.position = position
             postItemBinding.accountEmail.text = content.userEmail
