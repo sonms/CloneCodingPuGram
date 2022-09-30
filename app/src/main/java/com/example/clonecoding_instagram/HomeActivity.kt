@@ -28,7 +28,7 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //각 네비게이션바의 메뉴탭을 눌렀을 때 화면이 전환 되도록함
+        //각 네비게이션바의 메뉴탭을 화면이 전환 되도록함
         //initNavigationBar()
 
        
@@ -54,6 +54,7 @@ class HomeActivity : AppCompatActivity() {
                 }
                 true
             }
+            //default = home
             selectedItemId = R.id.home
         }
     }
