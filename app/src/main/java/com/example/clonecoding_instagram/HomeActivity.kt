@@ -59,6 +59,7 @@ class HomeActivity : AppCompatActivity() {
         }
     }
     private fun changeFragment(fragment : Fragment) {
+    //fragment 변경 
         supportFragmentManager
             .beginTransaction()
             .replace(com.google.android.material.R.id.container, fragment)
