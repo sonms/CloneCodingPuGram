@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
+    
+    <!--?attr 지정자를 사용하는 속성 값은 현재 테마에 지정된 값을 사용하라는 의미이다.-->
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
