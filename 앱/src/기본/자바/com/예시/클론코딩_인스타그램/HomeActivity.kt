@@ -52,6 +52,7 @@ class HomeActivity : AppCompatActivity() {
                         changeFragment(AccountFragment())
                     }
                 }
+                //listener시
                 true
             }
             //default = home
