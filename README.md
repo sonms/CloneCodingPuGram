@@ -1,5 +1,5 @@
 # CloneCodingPuGram
-<h1>skill to use</h1>
+<h1>skill to used</h1>
 -AndroidStudio
 -RecyclerView
 -BottomNavigationView
