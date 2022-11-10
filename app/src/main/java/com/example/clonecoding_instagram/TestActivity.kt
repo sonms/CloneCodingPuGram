@@ -51,6 +51,7 @@ class TestActivity : AppCompatActivity() {
                         changeFragment(SearchFragment())
                     }
                     R.id.camera -> {
+                        //권한 체크    
                         if (ContextCompat.checkSelfPermission(this@TestActivity.applicationContext, android.Manifest.permission.READ_EXTERNAL_STORAGE)== PackageManager.PERMISSION_GRANTED) {
                             launcher.launch("image/*")
                         } else {
