@@ -71,6 +71,7 @@ class TestActivity : AppCompatActivity() {
     fun changeFragment(fragment : Fragment) {
         //프래그먼트를 교체 하는 작업을 수행할 수 있게 해줍니다.
         //그러나 replace라 fragment전환 시 데이터가 replace됨으로 
+        //상황에 맞게 hide를 사용하도록 하기
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.main_content, fragment) //activity_test의 main content에 replace
