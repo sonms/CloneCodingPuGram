@@ -22,6 +22,7 @@ class TestActivity : AppCompatActivity() {
     private lateinit var main_content : LinearLayout //xml의 content를 담는 layout
     private lateinit var bottom_navigationview : BottomNavigationView
     private var auth: FirebaseAuth? = null
+    //런처 등록
     private var launcher = registerForActivityResult(ActivityResultContracts.GetContent()) {
             it-> changeFragment(CameraFragment(it))
     }
