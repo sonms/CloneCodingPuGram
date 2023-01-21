@@ -88,6 +88,7 @@ class MainActivity : AppCompatActivity() {
     /*fun googleSignIn() {
         LauncherActivityInfo
     }*/
+    //앱 시작 시 로그인 되어있을 시 바로 Home으로 이동
     /*public override fun onStart() {
         super.onStart()
         val account = GoogleSignIn.getLastSignedInAccount(this)
