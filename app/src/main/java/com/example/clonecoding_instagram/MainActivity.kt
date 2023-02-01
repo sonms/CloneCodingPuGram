@@ -115,7 +115,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
+    //이메일로 계정생성
     private fun createAccount(email: String, password: String) { //6월27일 추가
         // [START create_user_with_email]
         auth.createUserWithEmailAndPassword(email, password)
