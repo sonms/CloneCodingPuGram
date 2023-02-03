@@ -20,6 +20,7 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
     private var userSet : ArrayList<String>? = null //유저 정보
     private var contentSetId = arrayListOf<String>()
     /*init {
+        //firestore연결
         store.collection("posts")
             .whereIn("userEmail", userSet!!)
             .addSnapshotListener { //Starts listening to this query.
