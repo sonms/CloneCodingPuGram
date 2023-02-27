@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         auth = FirebaseAuth.getInstance()
-
+        //이미 로그인된 상태라면 바로 이동
         if (auth.currentUser != null) {
             val intent = Intent(this, TestActivity::class.java)
             startActivity(intent)
