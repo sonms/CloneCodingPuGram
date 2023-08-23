@@ -139,6 +139,7 @@ class MainActivity : AppCompatActivity() {
         // [END create_user_with_email]
     }
 
+    //로그인 유저 확인
     private fun loginUser(email: String, password: String) {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
